@@ -15,7 +15,7 @@
 
 2. Create LinkedList Class with methods:
     * get(i) 
-    * put(i)
+    * put(i, el)
     * delete(i)
-    * indexOf(el) - first element = el
+    * indexOf(el), so that get(indexOf(el) - indexOf(first element)) = el, even if first index is not 0 (ex. 1)
     * size()
