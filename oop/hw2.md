@@ -12,10 +12,3 @@
         2. 300$ if his team has >10 members
         3. salary*1.1 if more than half of team members are developers.
     * Redefine string representation for employee as follows: `"@firstName@ @secondName@, manager:@manager secondName@, experiance:@experiance@"`
-
-2. Create LinkedList Class with methods:
-    * get(i) 
-    * put(i, el)
-    * delete(i)
-    * indexOf(el), so that get(indexOf(el) - indexOf(first element)) = el, even if first index is not 0 (ex. 1)
-    * size()
