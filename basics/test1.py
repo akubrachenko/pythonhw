@@ -117,7 +117,7 @@ def decToBin(num):
     print(binary)
 decToBin(6)
 #end
-             
+#question 12             
                     
             
             
