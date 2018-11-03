@@ -48,8 +48,16 @@ def caesarCipher(s,k):
         else: index_a = index_l + k
         news = news+alphabet[index_a]
         i += 1
-    return news
-print(caesarCipher("test", 2))
+    print(news)
+caesarCipher("test", 2)
+def fakeCaesarCipher(s,k):
+    newstr = ""
+    i=0
+    l=len(s)
+    for i in range(l):
+        newstr += chr(ord(s[i]) + k)
+    print(newstr)
+fakeCaesarCipher("I am grut", 5) 
 #end
 #question 7
 def diagonalReverse(matrix):
@@ -115,8 +123,7 @@ def decToBin(num):
         num = num // 2
     print(binary)
 decToBin(6)
-#end
-#question 12             
-                    
+#end            
+                 
             
             
