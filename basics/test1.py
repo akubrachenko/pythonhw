@@ -95,7 +95,6 @@ def charFreq(str1):
     l=len(str1)
     count = 0
     newstr = ""
-    litt = ""
     dic = {}
     for i in range(l):
         for j in range(l):
