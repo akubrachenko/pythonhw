@@ -7,7 +7,7 @@ def createShips():
     for i in range(l):
         arr = []
         for j in range(l):
-            arr.append(str(random.randrange(0,8))+str(random.randrange(0,8)))
+            arr.append(str(random.randrange(0,7))+str(random.randrange(0,7)))
         ships.append(arr)
     #checking the same x,y coordinates
     newships = []
@@ -52,7 +52,6 @@ def startGame():
         ships = battle_ships
         shipxy = 0
         done = 0
-        ok = 0
         for i in range(len(ships)):
             if ships[i][0] == xy: 
                 shipxy = 1
@@ -63,7 +62,7 @@ def startGame():
             arrdid=[]
             old = ""
             for j in range(l):
-                if i == x and j == y and shipxy == 1 or str(i)+str(y) == old:
+                if i == x and j == y and shipxy == 1:
                     arr.append("1")
                     status += 1
                     done = 1
