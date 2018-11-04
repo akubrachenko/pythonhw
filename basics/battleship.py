@@ -1,3 +1,14 @@
+'''def createArena():
+    newArena = []
+    i = 0
+    j = 0
+    l = 10
+    for i in range(l):
+        arr = []
+        for j in range(l):
+            arr.append("*")
+        newArena.append(arr)
+    return newArena'''
 import random
 def createShips():
     ships = []
@@ -67,6 +78,7 @@ def startGame():
                     status += 1
                     done = 1
                     did.append(str(i)+str(y))
+                elif str(i)+str(j) in did: arr.append("x")
                 else:
                     arr.append("*")
             saved_arena.append(arr)
