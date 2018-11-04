@@ -1,14 +1,3 @@
-'''def createArena():
-    newArena = []
-    i = 0
-    j = 0
-    l = 10
-    for i in range(l):
-        arr = []
-        for j in range(l):
-            arr.append("*")
-        newArena.append(arr)
-    return newArena'''
 import random
 def createShips():
     ships = []
@@ -30,13 +19,7 @@ def createShips():
             else: arr.append(ships[i][0])
             test = ships[i][0]
         newships.append(arr)
-    return newships
-'''def checkShips():
-    ships = createShips()
-    i = 0
-    for i in range(len(ships)):
-        print(ships[i][0])
-checkShips()'''           
+    return newships          
 def viewArena(arena):
     i=0
     j=0
@@ -57,7 +40,7 @@ def startGame():
         y = int(xy[1])
         i=0
         j=0
-        l=8
+        l=8 # size of map
         arenas = ""
         saved_arena = []
         ships = battle_ships
