@@ -33,7 +33,8 @@ def viewArena(arena):
 def startGame():
     battle_ships = createShips()
     status = 0
-    did = []
+    did = ["99"]
+    oldxy = ["99"]
     while status != len(battle_ships):
         xy = input("Please enter ship position (x,y): ")
         x = int(xy[0])
@@ -60,8 +61,9 @@ def startGame():
                     arr.append("1")
                     status += 1
                     done = 1
-                    did.append(str(i)+str(y))
-                elif str(i)+str(j) in did: arr.append("x")
+                    did.append(str(i)+str(j))
+                elif str(i)+str(j) in did: arr.append("o")
+                elif str(i)+str(j) in oldxy: arr.append("x")
                 else:
                     arr.append("*")
             saved_arena.append(arr)
@@ -70,7 +72,8 @@ def startGame():
         for i in range(len(ships)):
             print(ships[i][0])
         if done == 1: print("Good Shoot!")
-        else: 
+        else:
+            oldxy.append(xy) 
             print("MiMo, try again")
             answer = input("Do you want to continue? Please enter 'y' or 'n': ")
             if answer == "n": status = len(battle_ships)
