@@ -1,25 +1,15 @@
 import random
-def createShips():
+def getShips():
     ships = []
-    i = 0
-    j = 0
     l = 4 #count of ships
-    for i in range(l):
-        arr = []
-        for j in range(l):
-            arr.append(str(random.randrange(0,7))+str(random.randrange(0,7)))
-        ships.append(arr)
-    #checking the same x,y coordinates
-    newships = []
-    test = "#"
-    for i in range(len(ships)):
-        arr = []
-        for j in range(l):
-            if test == ships[i][0]: arr.append("#")
-            else: arr.append(ships[i][0])
-            test = ships[i][0]
-        newships.append(arr)
-    return newships          
+    status = 0
+    while status != l:
+        x = random.randrange(0,9)
+        y = random.randrange(0,9)
+        if [x,y] not in ships: 
+            ships.append([x,y])
+            status += 1
+    return ships    
 def viewArena(arena):
     i=0
     j=0
@@ -31,10 +21,10 @@ def viewArena(arena):
         print(arenas)
         arenas = ""
 def startGame():
-    battle_ships = createShips()
+    battle_ships = getShips()
     status = 0
-    did = ["99"]
-    oldxy = ["99"]
+    did = []
+    oldxy = []
     while status != len(battle_ships):
         xy = input("Please enter ship position (x,y): ")
         x = int(xy[0])
@@ -48,7 +38,7 @@ def startGame():
         shipxy = 0
         done = 0
         for i in range(len(ships)):
-            if ships[i][0] == xy: 
+            if ships[i] == [x,y]: 
                 shipxy = 1
                 break
             else: shipxy = 0
@@ -57,26 +47,25 @@ def startGame():
             arrdid=[]
             old = ""
             for j in range(l):
-                if i == x and j == y and shipxy == 1:
+                if i == x and j == y and shipxy == 1 and [i,j] not in did:
                     arr.append("1")
                     status += 1
                     done = 1
-                    did.append(str(i)+str(j))
-                elif str(i)+str(j) in did: arr.append("o")
-                elif str(i)+str(j) in oldxy: arr.append("x")
+                    did.append([i,j])
+                elif [i,j] in did: arr.append("o")
+                elif [i,j] in oldxy: arr.append("x")
                 else:
                     arr.append("*")
             saved_arena.append(arr)
         viewArena(saved_arena)
         #Use this code if you are CHITER or Uchitel
         for i in range(len(ships)):
-            print(ships[i][0])
+            print(ships[i])
         if done == 1: print("Good Shoot!")
         else:
-            oldxy.append(xy) 
+            oldxy.append([x,y]) 
             print("MiMo, try again")
             answer = input("Do you want to continue? Please enter 'y' or 'n': ")
             if answer == "n": status = len(battle_ships)
     print("The end. Good game")
-
 startGame()
