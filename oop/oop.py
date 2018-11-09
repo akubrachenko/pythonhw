@@ -50,7 +50,6 @@ class Designers(CreateEmployee):
         CreateEmployee.__init__(self, first_name, second_name, experience, salary, manager)
         self.cof = cof
         self.manager = manager
-        
         self.set_salary()
 
     def set_salary(self):
@@ -71,6 +70,6 @@ dev5 = Developers("Bill","Gates", 6, 2700, man2)
 
 team = Department()
 for man in team.teams:
-    print(man.first_name,man.second_name,"has sallary -",man.get_salary())
+    print(man.first_name,man.second_name,"#salary: ",man.get_salary())
     for empl in man.subordinates:
-        print("    ",empl.first_name,empl.second_name,"has sallary -",empl.salary)
+        print("    ",empl.first_name,empl.second_name,"#salary: ",empl.salary)
