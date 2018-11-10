@@ -1,5 +1,12 @@
 class Department(object):
     teams = []
+    def get_salary(self):
+        for man in self.teams:
+            print(man.first_name,man.second_name,"#salary: ",man.get_salary())
+            for empl in man.subordinates:
+                print("    ",empl.first_name,empl.second_name,", manager is - ",man.first_name,man.second_name,"#salary: ",empl.salary)
+
+
 
 class CreateEmployee(object):
     def __init__(self, first_name, second_name, experience, salary, manager=None):
@@ -69,7 +76,4 @@ dev4 = Developers("Mark","Zuckerberg", 10, 5500, man2)
 dev5 = Developers("Bill","Gates", 6, 2700, man2)
 
 team = Department()
-for man in team.teams:
-    print(man.first_name,man.second_name,"#salary: ",man.get_salary())
-    for empl in man.subordinates:
-        print("    ",empl.first_name,empl.second_name,"#salary: ",empl.salary)
+team.get_salary()
