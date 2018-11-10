@@ -12,7 +12,8 @@ class Department(object):
         self.add_team()
 
     def add_team(self):
-        self.teams.append(self.manager)
+        if self.manager:
+            self.teams.append(self.manager)
 
     def add_team_members(self, man, array):
         man.add_to_team(array)
@@ -106,7 +107,7 @@ dev5 = Developers("Bill","Gates", 6, 2700, man2)
 
 man3.add_to_team([dev5])
 
-dept = Department(man3)
+dept = Department()
 dept.add_team_members(man,[dev,dev2,des])
 dept.add_team_members(man2,[dev3,dev4,des1])
 
